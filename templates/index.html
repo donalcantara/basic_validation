@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>Basic Validation</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Dojo Survey</h1>
+			{% with messages = get_flashed_messages() %}
+	    	{% if messages %}
+	      	{% for message in messages %}
+	        <p>{{message}}</p>
+	      	{% endfor %}
+	    	{% endif %}
+	  		{% endwith %}
+			<div class="row">
+				<div class="col-md-6"><hr>
+					<form role="form" action="/process" method="post">
+					  <div class="form-group">
+					    <label for="text">Name:</label>
+					    <input type="text" class="form-control" name="name">
+					  </div>
+					  <div class="form-group">
+						  <label for="sel1">Dojo Location:</label>
+						  <select class="form-control" name="location">
+						    <option>SJ</option>
+						    <option>SF</option>
+						    <option>LA</option>
+						    <option>WA</option>
+						  </select>
+						</div>
+					  <div class="form-group">
+						  <label for="sel1">Fave Language:</label>
+						  <select class="form-control" name="language">
+						    <option>JavaScript</option>
+						    <option>PHP</option>
+						    <option>Python</option>
+						    <option>Ruby</option>
+						  </select>
+						</div>
+						<div class="form-group">
+						  <label for="comment">Comment (not optional):</label>
+						  <textarea class="form-control" rows="5" name="comment"></textarea>
+						</div>
+					  <button type="submit" class="btn btn-default" style="float: right;">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
